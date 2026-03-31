@@ -2447,20 +2447,13 @@ function openEvDetail(evKey){
     venueChip.style.display = 'none';
   }
 
-  // Coach info
+  // Coach/lobby info
   var coachChip = document.getElementById('ev-detail-coach-chip');
   var coachVal = document.getElementById('ev-detail-coach');
   var cchEv = EVENTS_CCH.find(function(c){return c.key===ev.key;});
-  if(cchEv && G){
-    var myCoach = G[cchEv.coachKey]||'';
-    var myBus = myCoach ? TR.find(function(b){return b.C===myCoach;}) : null;
-    if(myBus){
-      coachVal.textContent = 'Coach '+myBus.C+' \u00B7 Lobby pickup at '+myBus[cchEv.timeKey];
-      coachChip.style.display = '';
-    } else {
-      coachVal.textContent = 'Waiting to be assigned';
-      coachChip.style.display = '';
-    }
+  if(cchEv){
+    coachVal.textContent = 'Hotel lobby \u00B7 '+cchEv.lobbyTime+' sharp';
+    coachChip.style.display = '';
   } else {
     coachChip.style.display = 'none';
   }
@@ -2696,7 +2689,7 @@ function toggleEvCard(card){
           <div class="ev-detail-chip-v" id="ev-detail-venue"></div>
         </div>
         <div class="ev-detail-chip full" id="ev-detail-coach-chip">
-          <div class="ev-detail-chip-k">Your coach</div>
+          <div class="ev-detail-chip-k">Transport</div>
           <div class="ev-detail-chip-v" id="ev-detail-coach"></div>
         </div>
         <div class="ev-detail-chip full" id="ev-detail-bridesmaid-chip" style="display:none">
