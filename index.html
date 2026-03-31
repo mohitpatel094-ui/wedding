@@ -2465,6 +2465,14 @@ function openEvDetail(evKey){
     coachChip.style.display = 'none';
   }
 
+  // Bridesmaid note — wedding event only
+  var bmChip = document.getElementById('ev-detail-bridesmaid-chip');
+  if(ev.key === 'wedding' && G && G.Bridesmaid === 'Yes'){
+    bmChip.style.display = '';
+  } else {
+    bmChip.style.display = 'none';
+  }
+
   document.getElementById('ev-detail-scroll').scrollTop = 0;
   page.classList.add('open');
 }
@@ -2690,6 +2698,10 @@ function toggleEvCard(card){
         <div class="ev-detail-chip full" id="ev-detail-coach-chip">
           <div class="ev-detail-chip-k">Your coach</div>
           <div class="ev-detail-chip-v" id="ev-detail-coach"></div>
+        </div>
+        <div class="ev-detail-chip full" id="ev-detail-bridesmaid-chip" style="display:none">
+          <div class="ev-detail-chip-k">Bridesmaid note</div>
+          <div class="ev-detail-chip-v note" id="ev-detail-bridesmaid">For Lipee&rsquo;s entrance, as you are a Bridesmaid, you&rsquo;ll line up along the stairs, then walk toward the mandap while Lipee meets her parents and walks down the aisle with them. The planning team will guide everything in real time post baraat and will tell you exactly where you need to stand, with the DJ calling you up once guests are seated. Just keep an ear out for the DJ to call you up!</div>
         </div>
       </div>
     </div>
