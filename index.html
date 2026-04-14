@@ -1612,9 +1612,9 @@ body{font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
       </div>
       <div class="tile-text-overlay">
         <div class="tile-label">Transport</div>
-        <div class="tile-title">Coaches</div>
+        <div class="tile-title">Shuttles</div>
         <div class="tile-sub">Your pickup times</div>
-        <div class="tile-quote">Your assigned coach &amp; pickup time for each event</div>
+        <div class="tile-quote">Your assigned shuttle &amp; pickup time for each event</div>
       </div>
     </div>
 
@@ -1666,7 +1666,7 @@ body{font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
   <div id="home-nav">
     <div class="hn-item active" onclick="scrollToSection('tiles')">Explore</div>
     <div class="hn-item" onclick="openPage('events')">Events</div>
-    <div class="hn-item" onclick="openPage('coaches')">Coaches</div>
+    <div class="hn-item" onclick="openPage('coaches')">Shuttles</div>
     <div class="hn-item" onclick="openPage('tables')">Tables</div>
     <div class="hn-item" onclick="openPage('photos')">Photos</div>
   </div>
@@ -1957,17 +1957,17 @@ var EXPLORE_PHOTO = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAYABgAAD/4QCARXhp
 
 var TR = {
   sangeet: {
-    '1': {pickup:'5:30 PM', back:'11:30 PM'},
-    '2': {pickup:'5:45 PM', back:'12:00 AM'}
+    '1': {pickup:'5:20 PM', back:'11:30 PM'},
+    '2': {pickup:'5:35 PM', back:'12:00 AM'}
   },
   wedding: {
-    '1': {pickup:'11:15 AM', back:'4:00 PM'},
-    '2': {pickup:'11:30 AM', back:'4:30 PM'}
+    '1': {pickup:'11:05 AM', back:'4:00 PM'},
+    '2': {pickup:'11:20 AM', back:'4:30 PM'}
   },
   reception: {
-    '1': {pickup:'12:30 PM', back:'4:30 PM'},
-    '2': {pickup:'12:45 PM', back:'5:00 PM'},
-    '3': {pickup:'12:30 PM', back:'4:30 PM'}
+    '1': {pickup:'12:20 PM', back:'4:30 PM'},
+    '2': {pickup:'12:35 PM', back:'5:00 PM'},
+    '3': {pickup:'12:20 PM', back:'4:30 PM'}
   }
 };
 
@@ -2018,7 +2018,7 @@ function buildCoachesPage(){
     var bus = myCoach && TR[ev.key] ? TR[ev.key][myCoach] : null;
 
     var assignText = bus
-      ? 'Coach '+myCoach+' \u00B7 Pickup '+bus.pickup+' \u00B7 Return '+bus.back
+      ? 'Shuttle '+myCoach+' \u00B7 Pickup '+bus.pickup+' \u00B7 Return '+bus.back
       : 'Waiting to be assigned';
 
     var card = document.createElement('div');
@@ -2342,14 +2342,14 @@ function buildCoaches(){
       html += '<div class="cch-mine">'+
         '<div class="cch-mine-top">'+
           '<div class="cch-mine-letter">'+myCoach+'</div>'+
-          '<div class="cch-mine-badge">Your coach</div>'+
+          '<div class="cch-mine-badge">Your shuttle</div>'+
         '</div>'+
         '<div class="cch-row"><span class="cch-row-k">Pickup</span><span class="cch-row-v hi">'+bus.pickup+'</span></div>'+
         '<div class="cch-row"><span class="cch-row-k">From</span><span class="cch-row-v">Eurostars hotel lobby</span></div>'+
         '<div class="cch-row"><span class="cch-row-k">Returns</span><span class="cch-row-v">'+bus.back+'</span></div>'+
       '</div>';
     } else {
-      html += '<div class="cch-na">Coach not yet assigned.</div>';
+      html += '<div class="cch-na">Shuttle not yet assigned.</div>';
     }
 
     block.innerHTML = html;
@@ -2395,7 +2395,7 @@ var EVENTS_DATA = [
     endTime:'11:00 PM',
     dress:'Evening Celebration',
     dressNote:'A rich, festive feel inspired by classic Indian heritage celebrations. Darker tones and jewel colours work best \u2014 emeralds, deep green, gold, navy, maroon, and other evening shades are all great choices.',
-    vibe:'Coaches whisk you from the Eurostars to an evening that begins with cocktails and builds into a night of Sangeet performances, dinner, and Garba and Bhangra on the dance floor. Coaches return you to the hotel at the end of the night.',
+    vibe:'Shuttles whisk you from the Eurostars to an evening that begins with cocktails and builds into a night of Sangeet performances, dinner, and Garba and Bhangra on the dance floor. Shuttles return you to the hotel at the end of the night.',
     accentColor:'#B8860B',
     attending:'Sangeet',
     hasPhoto:true,
@@ -2410,7 +2410,7 @@ var EVENTS_DATA = [
     endTime:'2:00 PM',
     dress:'Daytime Ceremony',
     dressNote:'Light, elegant, and traditional Indian. Soft colours, pastels, and lighter shades complement the setting beautifully, but darker tones also provide a cool contrast. The only request is to avoid traditional bridal reds.',
-    vibe:'Coaches depart the Eurostars at 11 AM and bring you to the wedding venue for the Baraat, followed by the ceremony, photos, and a celebratory lunch. Coaches return you to the hotel afterward.',
+    vibe:'Shuttles depart the Eurostars in the late morning and bring you to the wedding venue for the Baraat, followed by the ceremony, photos, and a celebratory lunch. Shuttles return you to the hotel afterward.',
     accentColor:'#8B1A1A',
     attending:'Wedding',
     hasPhoto:true,
@@ -2441,7 +2441,7 @@ var EVENTS_DATA = [
     endTime:'3:00 PM',
     dress:'Coastal Summer',
     dressNote:'An airy, coastal, European summer atmosphere. Linen, summer suits, light dresses, and breathable fabrics are perfect. Indian or Western attire \u2014 whatever feels most comfortable and celebratory to you.',
-    vibe:'Coaches depart the Eurostars at 11 AM for the final celebration. An afternoon reception with lunch, toasts, and one last gathering before everyone heads home. Coaches return you to the hotel afterward.',
+    vibe:'Shuttles depart the Eurostars around midday for the final celebration. An afternoon reception with lunch, toasts, and one last gathering before everyone heads home. Shuttles return you to the hotel afterward.',
     accentColor:'#1C3A5F',
     attending:'Reception',
     hasPhoto:true,
@@ -2481,7 +2481,7 @@ function openEvDetail(evKey){
     var myCoach = G ? (G[cchEv.coachKey]||'') : '';
     var bus = myCoach && TR[ev.key] ? TR[ev.key][myCoach] : null;
     if(bus){
-      coachVal.textContent = 'Coach '+myCoach+' \u00B7 '+bus.pickup;
+      coachVal.textContent = 'Shuttle '+myCoach+' \u00B7 '+bus.pickup;
       coachChip.style.display = '';
     } else {
       coachChip.style.display = 'none';
@@ -2581,7 +2581,7 @@ function toggleEvCard(card){
       <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
     </div>
     <div class="pn-sep"></div>
-    <div class="pn-item active" data-tab="coaches" onclick="switchTab('coaches')">Coaches</div>
+    <div class="pn-item active" data-tab="coaches" onclick="switchTab('coaches')">Shuttles</div>
     <div class="pn-item" data-tab="events" onclick="switchTab('events')">Events</div>
     <div class="pn-item" data-tab="tables" onclick="switchTab('tables')">Tables</div>
     <div class="pn-item" data-tab="photos" onclick="switchTab('photos')">Photos</div>
@@ -2595,9 +2595,9 @@ function toggleEvCard(card){
   <div id="coaches-scroll">
     <div class="evp-hero">
       <span class="evp-eye">Getting there &amp; back</span>
-      <div class="evp-title">Your coaches.</div>
+      <div class="evp-title">Your shuttles.</div>
       <div class="evp-sub">Pickup &amp; return times</div>
-      <div class="cch-lobby-note">Please be in the Eurostars hotel lobby 10 minutes before your coach pickup time!</div>
+      <div class="cch-lobby-note">Please show up to the Eurostars hotel lobby on time &mdash; shuttles will depart promptly at the times below. Don&rsquo;t be late!</div>
     </div>
     <div class="evp-cards" id="cchpCards"></div>
   </div>
@@ -2607,7 +2607,7 @@ function toggleEvCard(card){
         <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
       </div>
       <div class="cchp-sep"></div>
-      <div class="cchp-pill-lbl active">Coaches</div>
+      <div class="cchp-pill-lbl active">Shuttles</div>
     </div>
   </div>
 </div>
@@ -2721,7 +2721,7 @@ function toggleEvCard(card){
           <div class="ev-detail-chip-v" id="ev-detail-venue"></div>
         </div>
         <div class="ev-detail-chip" id="ev-detail-coach-chip">
-          <div class="ev-detail-chip-k">Your coach</div>
+          <div class="ev-detail-chip-k">Your shuttle</div>
           <div class="ev-detail-chip-v" id="ev-detail-coach"></div>
         </div>
         <div class="ev-detail-chip full" id="ev-detail-bridesmaid-chip" style="display:none">
