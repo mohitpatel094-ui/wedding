@@ -2497,6 +2497,22 @@ function openEvDetail(evKey){
     coachChip.style.display = 'none';
   }
 
+  // Table info
+  var tableChip = document.getElementById('ev-detail-table-chip');
+  var tableVal = document.getElementById('ev-detail-table');
+  var tblEv = EVENTS_TBL.find(function(t){return t.key===ev.key;});
+  if(tblEv && G){
+    var myTable = G[tblEv.tableKey]||'';
+    if(myTable){
+      tableVal.textContent = 'Table '+myTable;
+      tableChip.style.display = '';
+    } else {
+      tableChip.style.display = 'none';
+    }
+  } else {
+    tableChip.style.display = 'none';
+  }
+
   // Bridesmaid note — wedding event only
   var bmChip = document.getElementById('ev-detail-bridesmaid-chip');
   if(ev.key === 'wedding' && G && G.Bridesmaid === 'Yes'){
@@ -2730,6 +2746,10 @@ function toggleEvCard(card){
         <div class="ev-detail-chip tappable" id="ev-detail-coach-chip" onclick="closeEvDetail();setTimeout(function(){closeEventsPage();openCoachesPage();},180)">
           <div class="ev-detail-chip-k">Your shuttle <span class="chip-arrow">&rsaquo;</span></div>
           <div class="ev-detail-chip-v" id="ev-detail-coach"></div>
+        </div>
+        <div class="ev-detail-chip tappable" id="ev-detail-table-chip" style="display:none" onclick="closeEvDetail();setTimeout(function(){closeEventsPage();openTablesPage();},180)">
+          <div class="ev-detail-chip-k">Your table <span class="chip-arrow">&rsaquo;</span></div>
+          <div class="ev-detail-chip-v" id="ev-detail-table"></div>
         </div>
         <div class="ev-detail-chip full" id="ev-detail-bridesmaid-chip" style="display:none">
           <div class="ev-detail-chip-k">Bridesmaid note</div>
